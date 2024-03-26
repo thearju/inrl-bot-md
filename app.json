@@ -1,91 +1,75 @@
 {
-  "name": "inrl@4.1.2",
-  "description": "simple multi featured whatsapp bot",
-  "keywords": ["whatsapp"],
+  "name": "whatsapp-bot (GURU-BOT)",
+  "description": " Whatsapp bot.",
+  "keywords": [
+    "whatsapp bot"
+  ],
+  "repository": "https://github.com/Guru322/GURU-BOT",
+  "stack": "container",
   "env": {
+    "DATABASE_URL": {
+      "description": "your mongodb database url",
+      "required": false,
+      "value": ""
+    },
     "SESSION_ID": {
-      "description": "to run the bot",
+      "description": "your session id",
       "required": true,
       "value": ""
     },
-    "HEROKU_API_KEY": {
-      "description": "For updating bot and setting vars remotely",
+    "MODE": {
+      "description": "mode public or private",
       "required": true,
-      "value": ""
-    },
-    "HEROKU_APP_NAME": {
-      "description": "Exact name which you gave at the top",
-      "required": true,
-      "value": ""
-    },
-    "WORKTYPE": {
-      "description": "enter bot mode must be public/private",
-      "required": true,
-      "value": "private"
-    },
-    "BOT_INFO": {
-      "description": "baasic bot configration",
-      "required": true,
-      "value": "INRL-BOT-MD;INRL;https://i.imgur.com/DyLAuEh.jpg"
+      "value": "public"
     },
     "PREFIX": {
-      "description": "bot preifx  ., [.,!], false",
-      "required": true,
-      "value": "."
+      "description": "put any one symbol here except @ and + , leave it Blank if you want to use multiple prefix",
+      "required": false,
+      "value": ""
     },
-    "AUDIO_DATA": {
-      "description": "audio metadata",
+     "HKEY": {
+      "description": "Put your Heroku api key Here , Get one from here https://dashboard.heroku.com/account",
       "required": true,
-      "value": "ᴍᴜꜱɪᴄ;ᴋɪᴅ;https://i.imgur.com/DyLAuEh.jpg"
+      "value": ""
     },
-    "STICKER_DATA": {
-      "description": "sticker data",
+     "HAPP": {
+      "description": "Put the Heroku app name, same as above entered",
       "required": true,
-      "value": "inrl;inrl"
+      "value": ""
     },
-    "PERSONAL_MESSAGE": {
-      "description": "personal greetings for first message ",
-      "required": true,
-      "value": "this is a bot, owner is bussy with something"
+    "statusview": {
+      "description": "make it true if you want bot to view status",
+      "required": false,
+      "value": ""
     },
-    "REJECT_CALL": {
-      "description": "automatic reject call",
-      "required": true,
+    "autoRead": {
+      "description": "make it true if you want bot to read messages",
+      "required": false,
+      "value": ""
+    },
+    "antidelete": {
+      "description": "bot will forward deleted messages if you make it true",
+      "required": false,
       "value": "false"
     },
-    "WARN": {
-      "description": "warn count",
-      "required": true,
-      "value": "4"
-    },
-    "SUDO": {
-      "description": "secounds owners of bot",
-      "required": true,
-      "value": "null"
-    },
-    "AJOIN": {
-      "description": "automatically join to all groups",
-      "required": true,
-      "value": "false"
-    },
-    "SAVE_STATUS": {
-      "description": "save all status message",
-      "required": true,
-      "value": "null"
-    },
-    "STATUS_VIEW": {
-      "description": "status views, values= true,only-view=jid, not-view=jid",
-      "required": true,
-      "value": "false"
-    },
-    "ERROR_MSG": {
-      "description": "send error messages to bot number",
-      "required": true,
-      "value": "true"
+     "REMOVEBG_KEY": {
+      "description": "your RemoveBg api key",
+      "required": false,
+      "value": ""
     }
-  },
-  "buildpacks": [
-    { "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" },
-    { "url": "https://github.com/carlosdommor/heroku-buildpack-ffmpeg-latest" }
+    },
+    "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+    }
   ]
 }
